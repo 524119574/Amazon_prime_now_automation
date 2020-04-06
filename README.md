@@ -2,7 +2,14 @@
 This is a script that uses the selenium framework that help you to get a slot for prime now delivery.
 
 ## Get Started
-You need to set your email, password and 2FA token to the `amazon_email`, `amazon_password` and `otp_key`.
+First you will need to download the Google Chrome Driver from [here](https://chromedriver.chromium.org/downloads) and add it to path.
+
+Once you download and extract it you will  need to
+```bash
+mv <path-to-your-driver> /usr/local/bin
+```
+
+You then need to set your email, password and 2FA token to the `amazon_email`, `amazon_password` and `otp_key`.
 ```bash
 export amazon_email=<your-email>
 export amazon_password=<your-password>
