@@ -79,7 +79,6 @@ if __name__ == "__main__":
 
     # Set the Chrome options
     chrome_options = Options()
-    chrome_options.add_argument("user-data-dir=/Users/wge/Library/Application Support/Google/Chrome/Default")
     chrome_options.headless=True
 
     browser = webdriver.Chrome(options=chrome_options)
@@ -109,22 +108,19 @@ if __name__ == "__main__":
     checkout_button = find_element_by_href_text(browser, "'/checkout/enter-checkout'")
     checkout_button.click()
 
-    browser.minimize_window()
-
-    start_time = time.time()
+    # browser.minimize_window()
 
     while True:
         browser.refresh()
         try:
             no_slot_text = browser.find_elements_by_xpath("//span[contains(text(), 'No delivery windows for today or tomorrow')]")
         except:
-            browser.maximize_window()
+            # browser.maximize_window()
             place_order_in_earliest_slot(browser)
             break
         now = time.time()
         current_time = now.strftime("%H:%M:%S")
         print("Current Time =", current_time)
         random_sleep_time(60)
-
 
     print("This is the end of execution you should have a delivery slot.")
