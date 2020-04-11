@@ -89,20 +89,20 @@ if __name__ == "__main__":
     # Wait for some time so it loosk more like human
     random_sleep_time(2)
 
-    log.info("email entered")
+    print("email entered")
     password_input = browser.find_element_by_id("ap_password")
     password_input.send_keys(os.environ["amazon_password"])
     # Wait for some time so it loosk more like human
     random_sleep_time(2)
     password_input.submit()
-    log.info("password entered")
+    print("password entered")
 
     totp = pyotp.TOTP(os.environ["otp_key"])
     wait_until_elem_id_appear(browser, "auth-mfa-otpcode")
     otp_input = browser.find_element_by_id("auth-mfa-otpcode")
     otp_input.send_keys(totp.now())
     otp_input.submit()
-    log.info("otp entered")
+    print("otp entered")
 
 
     browser.get("https://primenow.amazon.co.uk/cart")
