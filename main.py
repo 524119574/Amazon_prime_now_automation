@@ -82,7 +82,7 @@ if __name__ == "__main__":
     chrome_options.add_argument("user-data-dir=/Users/wge/Library/Application Support/Google/Chrome/Default")
     chrome_options.headless=True
 
-    browser = webdriver.Chrome()
+    browser = webdriver.Chrome(options=chrome_options)
     browser.get("https://primenow.amazon.co.uk/signin?returnUrl=https%3A%2F%2Fprimenow.amazon.co.uk%2Fhome")
     email_input = browser.find_element_by_id("ap_email")
     email_input.send_keys(os.environ["amazon_email"])
