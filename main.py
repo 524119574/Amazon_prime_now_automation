@@ -79,26 +79,21 @@ if __name__ == "__main__":
 
     # Set the Chrome options
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")
     chrome_options.add_argument("user-data-dir=/Users/wge/Library/Application Support/Google/Chrome/Default")
     chrome_options.headless=True
 
     browser = webdriver.Chrome()
-    # browser.get('https://primenow.amazon.co.uk/home')
-    # postal_input = browser.find_element_by_id("lsPostalCode")
-    # postal_input.send_keys("SW7 5JN")
-    # postal_input.submit()
     browser.get("https://primenow.amazon.co.uk/signin?returnUrl=https%3A%2F%2Fprimenow.amazon.co.uk%2Fhome")
     email_input = browser.find_element_by_id("ap_email")
     email_input.send_keys(os.environ["amazon_email"])
     # Wait for some time so it loosk more like human
-    random_sleep_time.sleep(2)
+    random_sleep_time(2)
 
     log.info("email entered")
     password_input = browser.find_element_by_id("ap_password")
     password_input.send_keys(os.environ["amazon_password"])
     # Wait for some time so it loosk more like human
-    random_sleep_time.sleep(2)
+    random_sleep_time(2)
     password_input.submit()
     log.info("password entered")
 
@@ -129,7 +124,7 @@ if __name__ == "__main__":
         now = time.time()
         current_time = now.strftime("%H:%M:%S")
         print("Current Time =", current_time)
-        random_sleep_time.sleep(60)
+        random_sleep_time(60)
 
 
     print("This is the end of execution you should have a delivery slot.")
