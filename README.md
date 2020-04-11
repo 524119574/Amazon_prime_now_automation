@@ -71,7 +71,7 @@ the session is running in the background
 
 You can then attach to the session by running
 ```bash
-tmux a 0
+tmux a -t 0
 ```
 
 
