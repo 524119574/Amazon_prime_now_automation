@@ -123,5 +123,7 @@ if __name__ == "__main__":
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
         print("Current Time =", current_time)
+        random_sleep_time(60)
+
 
     print("This is the end of execution you should have a delivery slot.")
