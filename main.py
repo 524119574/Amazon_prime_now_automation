@@ -3,6 +3,7 @@ import pyotp
 import time
 import random
 import logging
+from datetime import datetime
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -118,9 +119,9 @@ if __name__ == "__main__":
             # browser.maximize_window()
             place_order_in_earliest_slot(browser)
             break
-        now = time.time()
+
+        now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
         print("Current Time =", current_time)
-        random_sleep_time(60)
 
     print("This is the end of execution you should have a delivery slot.")
